@@ -1,0 +1,29 @@
+services:
+  api:
+    build: .
+    container_name: medintel-api
+    command: python -m src.api
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  streamlit:
+    build: .
+    container_name: medintel-streamlit
+    command: >
+      streamlit run streamlit_app.py
+      --server.port=8501
+      --server.address=0.0.0.0
+      --server.headless=true
+    ports:
+      - "8501:8501"
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

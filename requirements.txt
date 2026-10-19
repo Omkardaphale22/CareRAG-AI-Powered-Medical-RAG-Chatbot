@@ -1,0 +1,41 @@
+# Core framework
+fastapi>=0.109
+uvicorn[standard]>=0.27
+pydantic>=2.5
+pydantic-settings>=2.1
+python-dotenv>=1.0
+python-multipart>=0.0.6
+
+# LLM provider: Google Gemini (maintained SDK; the old google-generativeai is end-of-life)
+google-genai>=1.0
+# Optional providers (only imported when selected in the UI / LLM_PROVIDER):
+# openai>=1.6
+# transformers>=4.40
+# torch
+
+# Embeddings + vector database
+sentence-transformers>=2.5
+faiss-cpu>=1.8
+langchain-text-splitters>=0.2
+numpy>=1.26
+
+# Document processing
+PyPDF2>=3.0.1
+python-docx>=1.1
+beautifulsoup4>=4.12
+requests>=2.31
+
+# Utilities
+pandas>=2.1
+tiktoken>=0.5
+aiohttp>=3.9
+
+# Deployment
+gunicorn>=21.2; sys_platform != "win32"
+
+# Streamlit UI
+streamlit>=1.38
+
+# Evaluation - disabled (Rust compilation issues)
+# ragas>=0.1.1
+# datasets>=2.15.0
